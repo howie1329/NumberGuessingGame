@@ -1,0 +1,17 @@
+Guessing Game
+
+User Interface
+    Startgame-MainMenu
+    To pick numbers
+    to play game without quiting 
+
+
+Game Rules
+    3 chances 
+    tell if guessed number is higher or lower
+    record wins/losess in current session
+
+Computer
+    Guess a number between 1-20
+    Tell if it high  or low
+    Contuie to next game depending on user
