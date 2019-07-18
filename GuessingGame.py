@@ -4,7 +4,17 @@ import random
 CompNum = 0
 PickNum = 0
 Turns = 3
+Wins = 0
+Losses = 0
 Play = True
+
+# Heading
+def Head():
+    global Wins
+    global Losses
+    strwins = str(Wins)
+    strlose = str(Losses)
+    print("Game Won: " + strwins + " Games Lost: " + strlose)
 
 
 # Menu
@@ -23,6 +33,7 @@ def Menu():
 def ComLogic():
     global CompNum
     CompNum = random.randrange(0, 20)
+    print(CompNum)
 
 
 # Users Logic
@@ -32,14 +43,24 @@ def UsersTurn():
     print(PickNum)
 
 
+def TurnsCheck():
+    global Turns
+    global Losses
+    if Turns == 0:
+        Losses = Losses + 1
+
+
 # Number Check
 def NumberCheck():
     global Turns
     global Play
     global CompNum
-    while Turns > 0:
+    global Losses
+    global Wins
+    while Turns > 1:
         if PickNum == CompNum:
             print("You Win")
+            Wins = Wins + 1
             Play = False
             Turns = 0
             break
@@ -53,12 +74,15 @@ def NumberCheck():
             print("Try Again")
             Turns = Turns - 1
             UsersTurn()
+    Head()
+    TurnsCheck()
 
 
 # Game Loop
 while Play == True:
     print("Welcome to the Number Guessing Game")
     Menu()
+    Head()
     UsersTurn()
     ComLogic()
     NumberCheck()
