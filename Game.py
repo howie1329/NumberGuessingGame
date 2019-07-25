@@ -39,7 +39,7 @@ def computer_logic():
     global computer_number
     computer_number = r.randrange(0, 20)
     print("The Computer as picked a number.....")
-    print("Debug-Computer_Number: {}".format(computer_number))
+    # print("Debug-Computer_Number: {}".format(computer_number))
 
 
 # User Logic
