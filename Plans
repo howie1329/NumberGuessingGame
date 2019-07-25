@@ -1,18 +1,23 @@
 Guessing Game
 
-User Interface
+User Interface-Done
     Startgame-MainMenu Done
     To pick numbers Done
     to play game without quiting Done
 
 
-Game Rules
+Game Rules-Done
     3 chances Done
     tell if guessed number is higher or lower Done
     record wins/losess in current session
 
-Computer
+Computer-Done
     Guess a number between 1-20 Done
     Tell if it high  or low Done
     Contuie to next game depending on user Done
     
+    
+    Need to test
+          Game Lookes good and finshed
+          could add leader board for games won or games won in a row\
+          way to save and load data for play 
