@@ -24,9 +24,12 @@ def menu():
     if play.lower() == "yes":
         print("Lets get started")
         game_loop()
-    else:
+    elif play.lower == "no":
         print("Thanks for playing")
         sys.exit(0)
+    else:
+        print("Wrong input please try again...")
+        menu()
 
 
 # Wins/Losses record
@@ -45,7 +48,17 @@ def computer_logic():
 # User Logic
 def user_logic():
     global human_number
-    human_number = int(input("Pick a number between 0 - 20 "))
+    print("You have {} turns left".format(3 - turns))
+    try:
+        human_number = int(input("Pick a number between 0 - 20 "))
+    except ValueError:
+        print("Wrong number...")
+        user_logic()
+    else:
+        if human_number > 20 or human_number < 0:
+            print("Number higher then 20 or lower then 0")
+            print("Try again....")
+            user_logic()
 
 
 # number_logic
@@ -71,9 +84,11 @@ def turn_check():
     turns += 1
     if turns == 3 and human_number == computer_number:
         print("Game Over")
+        turns = 0
         play = "no"
     elif turns == 3:
         print("Game Over")
+        turns = 0
         losses += 1
         play = "no"
 
@@ -90,5 +105,6 @@ def game_loop():
 
 
 # Game------------------
-heading()
-menu()
+if __name__ == "__main__":
+    heading()
+    menu()
