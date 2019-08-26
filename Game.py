@@ -8,7 +8,7 @@ losses = 0
 play = ""
 computer_number = 0
 human_number = 0
-turns = 0
+turns = 3
 
 
 # Heading
@@ -21,14 +21,14 @@ def heading():
 def menu():
     global play
     play = input("Would you like to play? (yes/no) ")
-    if play.lower() == "yes":
-        print("Lets get started")
+    if play.lower() == 'yes':
+        print("Lets get started!!!")
         game_loop()
-    elif play.lower == "no":
-        print("Thanks for playing")
+    elif play.lower() == 'no':
+        print("Thanks for playing...")
         sys.exit(0)
     else:
-        print("Wrong input please try again...")
+        print('Wrong input please try again...')
         menu()
 
 
@@ -48,7 +48,7 @@ def computer_logic():
 # User Logic
 def user_logic():
     global human_number
-    print("You have {} turns left".format(3 - turns))
+    print("You have {} turns left".format(turns))
     try:
         human_number = int(input("Pick a number between 0 - 20 "))
     except ValueError:
@@ -65,15 +65,16 @@ def user_logic():
 def number_logic():
     global play
     global wins
+    global turns
     if human_number == computer_number:
         print("You guessed the right number of {}".format(computer_number))
         wins += 1
+        turns = 3
         play = "no"
     elif human_number > computer_number:
         print("Your number of {} was larger then the computers number".format(human_number))
     elif human_number < computer_number:
         print("Your number of {} was smaller then the computers number".format(human_number))
-    pass
 
 
 # Turn Check
@@ -81,16 +82,13 @@ def turn_check():
     global turns
     global play
     global losses
-    turns += 1
-    if turns == 3 and human_number == computer_number:
-        print("Game Over")
-        turns = 0
-        play = "no"
-    elif turns == 3:
-        print("Game Over")
-        turns = 0
-        losses += 1
-        play = "no"
+    if human_number > computer_number or human_number < computer_number:
+        turns -= 1
+        if turns == 0 or turns <= 0:
+            print('Better Luck Next Time...')
+            turns = 3
+            losses += 1
+            play = 'no'
 
 
 # GameLoop
