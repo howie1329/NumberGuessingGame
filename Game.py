@@ -1,4 +1,5 @@
 # Guessing Game
+import os
 import random as r
 import sys
 
@@ -41,7 +42,7 @@ def wins_loses():
 def computer_logic():
     global computer_number
     computer_number = r.randrange(0, 20)
-    print("The Computer as picked a number.....")
+    print("The Computer has picked a number.....")
     # print("Debug-Computer_Number: {}".format(computer_number))
 
 
@@ -86,6 +87,7 @@ def turn_check():
         turns -= 1
         if turns == 0 or turns <= 0:
             print('Better Luck Next Time...')
+            print("The computer's number was {}".format(computer_number))
             turns = 3
             losses += 1
             play = 'no'
