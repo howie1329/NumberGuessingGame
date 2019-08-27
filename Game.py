@@ -13,12 +13,14 @@ turns = 3
 
 
 # Heading
+# Displays simple heading to user displaying a heading and win lose record
 def heading():
     print("Welcome to Howard's Guessing Game")
     wins_loses()
 
 
 # Menu
+# Creates a simple yes and no menu to allow user to play or exit program
 def menu():
     global play
     play = input("Would you like to play? (yes/no) ")
@@ -34,11 +36,13 @@ def menu():
 
 
 # Wins/Losses record
+# Displays games won and losses
 def wins_loses():
     print("Games Won: {} Games Losses: {}".format(wins, losses))
 
 
 # Computer Logic
+# Allows the computer to create and use a random number between 0 and 20
 def computer_logic():
     global computer_number
     computer_number = r.randrange(0, 20)
@@ -47,6 +51,7 @@ def computer_logic():
 
 
 # User Logic
+# Determines if the number the user inputs is vaild between two points
 def user_logic():
     global human_number
     print("You have {} turns left".format(turns))
@@ -63,6 +68,7 @@ def user_logic():
 
 
 # number_logic
+# Sees if the users number equals or is greater or less then the computers number then gives correct response
 def number_logic():
     global play
     global wins
@@ -78,7 +84,8 @@ def number_logic():
         print("Your number of {} was smaller then the computers number".format(human_number))
 
 
-# Turn Check and computer number print
+# Turn Check
+# Determines if the user losses from running out of turns
 def turn_check():
     global turns
     global play
@@ -94,6 +101,7 @@ def turn_check():
 
 
 # GameLoop
+# Simple game loop to go through all of the methods to run the game
 def game_loop():
     computer_logic()
     while play.lower() == "yes":
@@ -105,6 +113,7 @@ def game_loop():
 
 
 # Game------------------
+# Basic system start code
 if __name__ == "__main__":
     heading()
     menu()
