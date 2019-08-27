@@ -78,7 +78,7 @@ def number_logic():
         print("Your number of {} was smaller then the computers number".format(human_number))
 
 
-# Turn Check
+# Turn Check and computer number print
 def turn_check():
     global turns
     global play
